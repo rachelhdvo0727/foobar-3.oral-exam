@@ -1,9 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import styles from "./Select_beer.modules.css";
 import { Heroku } from "../modules/Heroku";
 import EachBeer from "./EachBeer.js";
 import ShoppingCart from "./ShoppingCart.js";
 import Popup from "./Popup.js";
+import BottleLoader from "./BottleLoader";
 
 export default function SelectBeer(props) {
   const [info, setData] = useState([]);
@@ -66,6 +67,7 @@ export default function SelectBeer(props) {
     setName(undefined);
     setToggleInfoBox(false);
   }
+
   return (
     <>
       <ShoppingCart
@@ -75,20 +77,11 @@ export default function SelectBeer(props) {
         orderSentBack={props.orderSentBack}
       />
       <main id="select_beer_main">
-        {info.length === 0 && (
-          <h2
-            style={{
-              margin: "45vh auto",
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-            }}
-          >
-            Loading ...
-          </h2>
-        )}
+        {info.length === 0 && <BottleLoader />}
         {info.length !== 0 && (
-          <h1 id="chooseBeer">Choose your favorite beer!</h1>
+          <div>
+            <h1 id="chooseBeer">Choose your favorite beer!</h1>
+          </div>
         )}
 
         <article id="selection-of-beers">
