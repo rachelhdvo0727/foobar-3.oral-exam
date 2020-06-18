@@ -79,7 +79,7 @@ export default function SelectBeer(props) {
         orderSentBack={props.orderSentBack}
       />
       <main id="select_beer_main">
-        {/* <BottleLoader /> */}
+        <BottleLoader />
         {info.length === 0 && <BottleLoader />}
         {info.length !== 0 && (
           <div>

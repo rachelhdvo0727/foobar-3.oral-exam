@@ -12,7 +12,7 @@ export default function BottleLoader(props) {
     <>
       <div
         style={{
-          margin: "30vh auto",
+          margin: "45vh auto",
           display: "flex",
           flexFlow: "column wrap",
           justifyContent: "center",
@@ -25,7 +25,7 @@ export default function BottleLoader(props) {
             style={{
               alignSelf: "center",
               placeSelf: "center",
-              paddingLeft: "23vw",
+              paddingLeft: "23%",
             }}
             afterInjection={(error, svg) => {
               if (error) {
@@ -42,34 +42,17 @@ export default function BottleLoader(props) {
             style={{
               alignSelf: "center",
               placeSelf: "center",
-              paddingLeft: "10vw",
+              paddingLeft: "6%",
             }}
             afterInjection={(error, svg) => {
               if (error) {
                 console.error(error);
                 return;
               }
-              svg.setAttribute("width", "40%");
+              svg.setAttribute("width", "50%");
             }}
           />
         )}
-        {/* {biggerScreen && (
-          <ReactSVG
-            src={SpinningBottle}
-            style={{
-              alignSelf: "center",
-              placeSelf: "center",
-              paddingLeft: "10vw",
-            }}
-            afterInjection={(error, svg) => {
-              if (error) {
-                console.error(error);
-                return;
-              }
-              svg.setAttribute("width", "40%");
-            }}
-          />
-        )} */}
         <h2
           style={{
             alignSelf: "center",
