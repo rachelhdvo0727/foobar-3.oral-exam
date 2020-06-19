@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useRef } from "react";
 import { Heroku } from "../modules/Heroku";
 import { useHistory } from "react-router-dom";
 import NumberFormat from "react-number-format";
