@@ -33,7 +33,7 @@ export default function PaymentScreen(props) {
       }
     });
 
-    console.log(yourorder);
+    //console.log(yourorder);
     setOrders(yourorder);
   }, [props.orders]);
 
