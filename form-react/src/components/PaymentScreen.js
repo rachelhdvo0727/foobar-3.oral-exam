@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { ReactSVG } from "react-svg";
 import { Link } from "react-router-dom";
 import styles from "./PaymentScreen.module.css";
@@ -11,6 +11,7 @@ import ButtonPay from "./ButtonPay";
 import CardDetailsBtn from "./CardDetailsBtn";
 import MobilePayIcon from "../svgs/mobilepay_code.svg";
 import WirelessIcon from "../svgs/wireless_icon.svg";
+import { Heroku } from "../modules/Heroku";
 
 export default function PaymentScreen(props) {
   // set chosen payment is unknown at the start
@@ -18,6 +19,23 @@ export default function PaymentScreen(props) {
 
   // modal is not shown when user start the payment process
   const [show, setState] = useState(false);
+  const [orders, setOrders] = useState([]);
+
+  //fortmat the data to fit with the heroku array's format
+  useEffect(() => {
+    const yourorder = [];
+    props.orders.forEach((elm) => {
+      if (elm.name !== undefined) {
+        yourorder.push({
+          name: elm.name,
+          amount: elm.count,
+        });
+      }
+    });
+
+    console.log(yourorder);
+    setOrders(yourorder);
+  }, [props.orders]);
 
   //Modal for the chosen payment
   const Modal = ({ children, show, setState }) => {
@@ -81,7 +99,13 @@ export default function PaymentScreen(props) {
               }}
               className={OnePaymentStyle.showMobilePay}
             />
-            <Link to="/end" className={OnePaymentStyle.pretendPayment}>
+            <Link
+              to="/end"
+              className={OnePaymentStyle.pretendPayment}
+              onClick={() => {
+                Heroku.postOrder(orders);
+              }}
+            >
               <ButtonPay />
             </Link>
           </div>
@@ -93,18 +117,19 @@ export default function PaymentScreen(props) {
               src={WirelessIcon}
               className={OnePaymentStyle.showWireless}
             />
-            <Link className={OnePaymentStyle.pretendPayment} to="/end">
+            <Link
+              className={OnePaymentStyle.pretendPayment}
+              to="/end"
+              onClick={() => {
+                Heroku.postOrder(orders);
+              }}
+            >
               <ButtonPay />
             </Link>
           </div>
         )}
         {/* if Credit card payment is chosen */}
-        {payment === "carddetails" && (
-          <PayForm
-            sendBackOrders={props.sendBackOrders}
-            orders={props.orders}
-          />
-        )}
+        {payment === "carddetails" && <PayForm yourorder={orders} />}
       </Modal>
     </main>
   );

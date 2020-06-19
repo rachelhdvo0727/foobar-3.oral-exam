@@ -9,23 +9,8 @@ import MastercardIcon from "../images/mastercard.png";
 import VisaIcon from "../images/visa.png";
 
 export default function Form(props) {
-  console.log(props.orders);
+  //console.log(props.yourorder);
   let history = useHistory();
-  const [orders, setOrders] = useState([]);
-  useEffect(() => {
-    const ordertest = [];
-    props.orders.forEach((elm) => {
-      if (elm.name !== undefined) {
-        ordertest.push({
-          name: elm.name,
-          amount: elm.count,
-        });
-      }
-    });
-
-    console.log(ordertest);
-    setOrders(ordertest);
-  }, [props.orders]);
 
   //referencing HTML tags
   const cardNoMsg = useRef("");
@@ -77,7 +62,7 @@ export default function Form(props) {
       cvvMsg.current.textContent = "CVV number must have 3 digits";
       cvvMsg.current.style.color = "var(--pink-highlight)";
     } else {
-      Heroku.postOrder(orders);
+      Heroku.postOrder(props.yourorder);
       history.push("/end");
     }
   }
