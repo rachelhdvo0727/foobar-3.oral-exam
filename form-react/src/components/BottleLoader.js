@@ -6,7 +6,6 @@ import { useMediaPredicate } from "react-media-hook";
 export default function BottleLoader(props) {
   const mobileScreen = useMediaPredicate("(max-width: 400px)");
   const tabletScr = useMediaPredicate("(min-width: 768px");
-  const biggerScreen = useMediaPredicate("(min-width: 1000px)");
 
   return (
     <>
@@ -32,7 +31,7 @@ export default function BottleLoader(props) {
                 console.error(error);
                 return;
               }
-              svg.setAttribute("width", "28%");
+              svg.setAttribute("width", "25%");
             }}
           />
         )}
@@ -49,7 +48,7 @@ export default function BottleLoader(props) {
                 console.error(error);
                 return;
               }
-              svg.setAttribute("width", "50%");
+              svg.setAttribute("width", "40%");
             }}
           />
         )}
@@ -58,7 +57,8 @@ export default function BottleLoader(props) {
             alignSelf: "center",
           }}
         >
-          Loading ...
+          Spinning around <br />
+          Finding beers...
         </h2>
       </div>
     </>

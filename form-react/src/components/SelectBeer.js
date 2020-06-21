@@ -5,8 +5,6 @@ import EachBeer from "./EachBeer.js";
 import ShoppingCart from "./ShoppingCart.js";
 import Popup from "./Popup.js";
 import BottleLoader from "./BottleLoader";
-import SpinningBottle from "../svgs/bottle_loading.svg";
-import { ReactSVG } from "react-svg";
 
 export default function SelectBeer(props) {
   const [info, setData] = useState([]);
@@ -79,7 +77,6 @@ export default function SelectBeer(props) {
         orderSentBack={props.orderSentBack}
       />
       <main id="select_beer_main">
-        <BottleLoader />
         {info.length === 0 && <BottleLoader />}
         {info.length !== 0 && (
           <div>
@@ -94,6 +91,7 @@ export default function SelectBeer(props) {
             popUp={toggleInfoBox}
             onClose={onClose}
           />
+
           {oneOfEachBeer.map((data) => (
             <EachBeer
               key={data}
