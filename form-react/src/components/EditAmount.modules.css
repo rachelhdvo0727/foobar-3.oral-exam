@@ -19,10 +19,12 @@
   margin-top: 0;
   margin-bottom: 0;
   border-style: none;
+  cursor: pointer;
 }
 
 .plusMinus:disabled {
   opacity: 0.5;
+  cursor: unset;
 }
 
 .price {

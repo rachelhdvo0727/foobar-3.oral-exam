@@ -10,6 +10,7 @@
   padding: 2vw;
   text-align: center;
   align-self: center;
+  cursor: pointer;
 }
 /* iPad verticle */
 @media screen and (min-width: 768px) {
