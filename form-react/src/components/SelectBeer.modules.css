@@ -26,7 +26,6 @@ h1 {
   font-weight: bold;
   margin-bottom: 2rem;
 }
-
 .plusMinus {
   width: 35px;
   height: 35px;
@@ -108,7 +107,11 @@ article {
 
 .changeColor {
   /* FROM https://codepen.io/priosoft/pen/dMryaY */
-  background-image: -webkit-linear-gradient(45deg, transparent 50%, #eb627e 50%);
+  background-image: -webkit-linear-gradient(
+    45deg,
+    transparent 50%,
+    #eb627e 50%
+  );
   background-image: linear-gradient(45deg, transparent 50%, #eb627e 50%);
   background-position: 100%;
   background-size: 250%;

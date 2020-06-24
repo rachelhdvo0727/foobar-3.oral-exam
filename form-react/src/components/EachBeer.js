@@ -39,7 +39,14 @@ export default function EachBeer(props) {
         </button>
         <Keg {...props} />
       </div>
-      <h2>{props.name}</h2>
+      <h2
+        onClick={(e) => {
+          props.popUp(props.name);
+        }}
+        style={{ cursor: "pointer" }}
+      >
+        {props.name}
+      </h2>
       <p className="price">25 kr</p>
       <Amount
         count={counter}
