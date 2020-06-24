@@ -5,10 +5,6 @@ export default function Keg(props) {
   let imgName = props.name.toLowerCase();
   let label = imgName.split(" ").join("");
 
-  const beerColor1 = useRef("");
-  const beerColor2 = useRef("");
-  const beerColor3 = useRef("");
-
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -51,7 +47,6 @@ export default function Keg(props) {
                     id="Rectangle_173"
                     data-name="Rectangle 173"
                     className="cls-4"
-                    ref={beerColor1}
                     x="6.64"
                     y="127.62"
                     width="196.96"
@@ -63,7 +58,6 @@ export default function Keg(props) {
                   id="Rectangle_174"
                   data-name="Rectangle 174"
                   className="cls-4"
-                  ref={beerColor2}
                   x="6.55"
                   y="127.51"
                   width="196.67"
@@ -81,7 +75,6 @@ export default function Keg(props) {
                   <rect
                     id="Rectangle_173"
                     data-name="Rectangle 173"
-                    // className="cls-4"
                     fill="#6D2D20"
                     x="6.64"
                     y="127.62"
@@ -93,7 +86,6 @@ export default function Keg(props) {
                 <rect
                   id="Rectangle_174"
                   data-name="Rectangle 174"
-                  // className="cls-4"
                   fill="#6D2D20"
                   x="6.55"
                   y="127.51"
@@ -197,21 +189,21 @@ export default function Keg(props) {
               d="M45.76,24.07S105.6,32.9,158.6,23.5C158.6,23.5,107.88,56.84,45.76,24.07Z"
             />
             {(props.category === undefined ||
+              props.category !== "IPA" ||
               props.category !== "California Common" ||
               props.category !== "Stout" ||
-              props.category !== "IPA" ||
               props.category !== "European Lager" ||
               props.category !== "Oktoberfest") && (
               <path
                 id="Path_126"
                 data-name="Path 126"
                 className="cls-6"
-                ref={beerColor3}
                 d="M50.47,278.58s59.84-8.83,112.83.57C163.3,279.15,112.58,245.82,50.47,278.58Z"
               />
             )}
             {(props.category === "IPA" ||
-              props.name === "Hoppily Ever After") && (
+              props.name === "Hoppily Ever After" ||
+              props.name === "Fairy Tale Ale") && (
               <path
                 id="Path_126"
                 data-name="Path 126"
@@ -247,6 +239,7 @@ export default function Keg(props) {
                 d="M50.47,278.58s59.84-8.83,112.83.57C163.3,279.15,112.58,245.82,50.47,278.58Z"
               />
             )}
+
             <path
               id="Path_125"
               data-name="Path 125"
