@@ -9,6 +9,7 @@ import BottleLoader from "./BottleLoader";
 export default function SelectBeer(props) {
   const [info, setData] = useState([]);
   const [name, setName] = useState("");
+  // const [category, setCategory] = useState("");
   const [selected, setSelected] = useState({});
   const [desc, setDesc] = useState([]);
   const [toggleInfoBox, setToggleInfoBox] = useState(false);
@@ -16,27 +17,13 @@ export default function SelectBeer(props) {
   useEffect(() => {
     Heroku.getData(setData, "taps");
   }, []);
-
   useEffect(() => {
-    getDesc(setDesc);
+    Heroku.getBeerTypes(setDesc);
+    // Heroku.getBeerTypes(setCategory);
   }, []);
-
   function getOrders(orders) {
     console.log(orders);
     props.getOrders(orders);
-  }
-
-  function getDesc(callback) {
-    fetch("https://foobar-teamdiverse.herokuapp.com/beertypes", {
-      method: "get",
-      headers: {
-        "Content-Type": "application/json; charset=utf-8",
-      },
-    })
-      .then((e) => e.json())
-      .then((data) => {
-        callback(data);
-      });
   }
 
   function selectingBeer(beers) {
@@ -46,7 +33,6 @@ export default function SelectBeer(props) {
   const beers = info.map(function (item) {
     return item.beer;
   });
-
   const oneOfEachBeer = beers.filter(function (item, index) {
     return beers.indexOf(item) >= index;
   });

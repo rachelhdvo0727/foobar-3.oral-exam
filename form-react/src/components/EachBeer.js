@@ -5,7 +5,6 @@ import Keg from "./Keg.js";
 
 export default function EachBeer(props) {
   const [counting, setCounting] = useState();
-
   function counter(count) {
     console.log(count);
     setCounting(count);
@@ -16,6 +15,7 @@ export default function EachBeer(props) {
       props.amountOfBeer(counting);
     }
   }, [counting]);
+  console.log(props);
 
   return (
     <article
@@ -34,6 +34,7 @@ export default function EachBeer(props) {
           }}
           className={`information`}
           name={props.name}
+          category={props.category}
         >
           i
         </button>

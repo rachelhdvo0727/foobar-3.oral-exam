@@ -1,4 +1,4 @@
-import { foobarUrl, orderUrl } from "./Vars";
+import { foobarUrl, orderUrl, beertypesUrl } from "./Vars";
 function getData(callback, name) {
   fetch(foobarUrl, {
     method: "get",
@@ -9,9 +9,22 @@ function getData(callback, name) {
     .then((e) => e.json())
     .then((data) => {
       callback(data[name]);
+      console.log(data);
     });
 }
 
+function getBeerTypes(callback, description, category) {
+  fetch(beertypesUrl, {
+    method: "get",
+    headers: {
+      "Content-Type": "application/json; charset=utf-8",
+    },
+  })
+    .then((e) => e.json())
+    .then((data) => {
+      callback(data);
+    });
+}
 function postOrder(data) {
   const postData = JSON.stringify(data);
   fetch(orderUrl, {
@@ -27,5 +40,6 @@ function postOrder(data) {
 
 export const Heroku = {
   getData,
+  getBeerTypes,
   postOrder,
 };
