@@ -203,7 +203,8 @@ export default function Keg(props) {
             )}
             {(props.category === "IPA" ||
               props.name === "Hoppily Ever After" ||
-              props.name === "Fairy Tale Ale") && (
+              props.name === "Fairy Tale Ale" ||
+              props.name === "GitHop") && (
               <path
                 id="Path_126"
                 data-name="Path 126"
