@@ -4,7 +4,6 @@ import styles from "./Mug.modules.css";
 export default function Mug(props) {
   let imgName = props.name.toLowerCase();
   let label = imgName.split(" ").join("");
-  console.log(props.name);
 
   return (
     <svg
