@@ -81,7 +81,7 @@ export default function SelectBeer(props) {
             <EachBeer
               key={data}
               name={data}
-              desc={desc.name}
+              desc={desc}
               popUp={onInfoClick}
               amountOfBeer={selectingBeer}
             />

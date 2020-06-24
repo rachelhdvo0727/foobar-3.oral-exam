@@ -15,7 +15,6 @@ export default function EachBeer(props) {
       props.amountOfBeer(counting);
     }
   }, [counting]);
-  console.log(props.desc);
 
   return (
     <article
