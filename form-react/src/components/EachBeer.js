@@ -15,7 +15,7 @@ export default function EachBeer(props) {
       props.amountOfBeer(counting);
     }
   }, [counting]);
-  console.log(props);
+  console.log(props.desc);
 
   return (
     <article
@@ -34,7 +34,6 @@ export default function EachBeer(props) {
           }}
           className={`information`}
           name={props.name}
-          category={props.category}
         >
           i
         </button>

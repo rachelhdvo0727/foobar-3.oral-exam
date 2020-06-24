@@ -1,9 +1,13 @@
-import React from "react";
+import React, { useRef } from "react";
 import styles from "./Keg.modules.css";
 
 export default function Keg(props) {
   let imgName = props.name.toLowerCase();
   let label = imgName.split(" ").join("");
+
+  const beerColor1 = useRef("");
+  const beerColor2 = useRef("");
+  const beerColor3 = useRef("");
 
   return (
     <svg
@@ -35,39 +39,214 @@ export default function Keg(props) {
                 rx="62.36"
               />
             </g>
-            <g id="Group_43" data-name="Group 43">
-              <rect
-                id="Rectangle_173"
-                data-name="Rectangle 173"
-                className="cls-4"
-                x="6.64"
-                y="127.62"
-                width="196.96"
-                height="157.88"
-                rx="62.36"
-              />
-            </g>
-            <rect
-              id="Rectangle_174"
-              data-name="Rectangle 174"
-              className="cls-4"
-              x="6.55"
-              y="127.51"
-              width="196.67"
-              height="66.67"
-            />
+            {(props.category === undefined ||
+              props.category !== "California Common" ||
+              props.category !== "Stout" ||
+              props.category !== "IPA" ||
+              props.category !== "European Lager" ||
+              props.category !== "Oktoberfest") && (
+              <>
+                <g id="Group_43" data-name="Group 43">
+                  <rect
+                    id="Rectangle_173"
+                    data-name="Rectangle 173"
+                    className="cls-4"
+                    ref={beerColor1}
+                    x="6.64"
+                    y="127.62"
+                    width="196.96"
+                    height="157.88"
+                    rx="62.36"
+                  />
+                </g>
+                <rect
+                  id="Rectangle_174"
+                  data-name="Rectangle 174"
+                  className="cls-4"
+                  ref={beerColor2}
+                  x="6.55"
+                  y="127.51"
+                  width="196.67"
+                  height="66.67"
+                />
+              </>
+            )}
+            {(props.category === "IPA" ||
+              props.name === "Fairy Tale Ale" ||
+              props.name === "GitHop" ||
+              props.name === "Hoppily Ever After") && (
+              <>
+                {" "}
+                <g id="Group_43" data-name="Group 43">
+                  <rect
+                    id="Rectangle_173"
+                    data-name="Rectangle 173"
+                    // className="cls-4"
+                    fill="#6D2D20"
+                    x="6.64"
+                    y="127.62"
+                    width="196.96"
+                    height="157.88"
+                    rx="62.36"
+                  />
+                </g>
+                <rect
+                  id="Rectangle_174"
+                  data-name="Rectangle 174"
+                  // className="cls-4"
+                  fill="#6D2D20"
+                  x="6.55"
+                  y="127.51"
+                  width="196.67"
+                  height="66.67"
+                />
+              </>
+            )}
+            {(props.category === "European Lager" ||
+              props.category === "Oktoberfest" ||
+              props.name === "Mowintime" ||
+              props.name === "Hollaback Lager") && (
+              <>
+                {" "}
+                <g id="Group_43" data-name="Group 43">
+                  <rect
+                    id="Rectangle_173"
+                    data-name="Rectangle 173"
+                    // className="cls-4"
+                    fill="#BF820F"
+                    x="6.64"
+                    y="127.62"
+                    width="196.96"
+                    height="157.88"
+                    rx="62.36"
+                  />
+                </g>
+                <rect
+                  id="Rectangle_174"
+                  data-name="Rectangle 174"
+                  // className="cls-4"
+                  fill="#BF820F"
+                  x="6.55"
+                  y="127.51"
+                  width="196.67"
+                  height="66.67"
+                />
+              </>
+            )}
+            {(props.category === "Stout" || props.name === "Row 26") && (
+              <>
+                {" "}
+                <g id="Group_43" data-name="Group 43">
+                  <rect
+                    id="Rectangle_173"
+                    data-name="Rectangle 173"
+                    // className="cls-4"
+                    fill="#000000"
+                    x="6.64"
+                    y="127.62"
+                    width="196.96"
+                    height="157.88"
+                    rx="62.36"
+                  />
+                </g>
+                <rect
+                  id="Rectangle_174"
+                  data-name="Rectangle 174"
+                  // className="cls-4"
+                  fill="#000000"
+                  x="6.55"
+                  y="127.51"
+                  width="196.67"
+                  height="66.67"
+                />
+              </>
+            )}
+            {(props.category === "California Common" ||
+              props.name === "Steampunk") && (
+              <>
+                {" "}
+                <g id="Group_43" data-name="Group 43">
+                  <rect
+                    id="Rectangle_173"
+                    data-name="Rectangle 173"
+                    // className="cls-4"
+                    fill="#BF7245"
+                    x="6.64"
+                    y="127.62"
+                    width="196.96"
+                    height="157.88"
+                    rx="62.36"
+                  />
+                </g>
+                <rect
+                  id="Rectangle_174"
+                  data-name="Rectangle 174"
+                  // className="cls-4"
+                  fill="#BF7245"
+                  x="6.55"
+                  y="127.51"
+                  width="196.67"
+                  height="66.67"
+                />
+              </>
+            )}
             <path
               id="Path_123"
               data-name="Path 123"
               className="cls-5"
               d="M45.76,24.07S105.6,32.9,158.6,23.5C158.6,23.5,107.88,56.84,45.76,24.07Z"
             />
-            <path
-              id="Path_126"
-              data-name="Path 126"
-              className="cls-6"
-              d="M50.47,278.58s59.84-8.83,112.83.57C163.3,279.15,112.58,245.82,50.47,278.58Z"
-            />
+            {(props.category === undefined ||
+              props.category !== "California Common" ||
+              props.category !== "Stout" ||
+              props.category !== "IPA" ||
+              props.category !== "European Lager" ||
+              props.category !== "Oktoberfest") && (
+              <path
+                id="Path_126"
+                data-name="Path 126"
+                className="cls-6"
+                ref={beerColor3}
+                d="M50.47,278.58s59.84-8.83,112.83.57C163.3,279.15,112.58,245.82,50.47,278.58Z"
+              />
+            )}
+            {(props.category === "IPA" ||
+              props.name === "Hoppily Ever After") && (
+              <path
+                id="Path_126"
+                data-name="Path 126"
+                fill="#6D2D20"
+                d="M50.47,278.58s59.84-8.83,112.83.57C163.3,279.15,112.58,245.82,50.47,278.58Z"
+              />
+            )}
+            {(props.category === "European Lager" ||
+              props.category === "Oktoberfest" ||
+              props.name === "Mowintime" ||
+              props.name === "Hollaback Lager") && (
+              <path
+                id="Path_126"
+                data-name="Path 126"
+                fill="#BF820F"
+                d="M50.47,278.58s59.84-8.83,112.83.57C163.3,279.15,112.58,245.82,50.47,278.58Z"
+              />
+            )}
+            {(props.category === "Stout" || props.name === "Row 26") && (
+              <path
+                id="Path_126"
+                data-name="Path 126"
+                fill="#000000"
+                d="M50.47,278.58s59.84-8.83,112.83.57C163.3,279.15,112.58,245.82,50.47,278.58Z"
+              />
+            )}
+            {(props.category === "California Common" ||
+              props.name === "Steampunk") && (
+              <path
+                id="Path_126"
+                data-name="Path 126"
+                fill="#BF7245"
+                d="M50.47,278.58s59.84-8.83,112.83.57C163.3,279.15,112.58,245.82,50.47,278.58Z"
+              />
+            )}
             <path
               id="Path_125"
               data-name="Path 125"

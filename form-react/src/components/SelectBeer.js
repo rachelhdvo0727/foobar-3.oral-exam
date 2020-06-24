@@ -11,6 +11,7 @@ export default function SelectBeer(props) {
   const [name, setName] = useState("");
   const [selected, setSelected] = useState({});
   const [desc, setDesc] = useState([]);
+
   const [toggleInfoBox, setToggleInfoBox] = useState(false);
 
   useEffect(() => {
@@ -80,6 +81,7 @@ export default function SelectBeer(props) {
             <EachBeer
               key={data}
               name={data}
+              desc={desc.name}
               popUp={onInfoClick}
               amountOfBeer={selectingBeer}
             />

@@ -20,7 +20,7 @@ export default function Popup(props) {
           {desc[0] !== undefined && (
             <>
               <div className="keg-popup">
-                <Keg name={desc[0].name} />
+                <Keg name={desc[0].name} category={desc[0].category} />
               </div>
               <h2>{desc[0].name}</h2>
               <h3>Category: {desc[0].category} </h3>
