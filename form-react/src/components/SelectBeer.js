@@ -9,7 +9,6 @@ import BottleLoader from "./BottleLoader";
 export default function SelectBeer(props) {
   const [info, setData] = useState([]);
   const [name, setName] = useState("");
-  // const [category, setCategory] = useState("");
   const [selected, setSelected] = useState({});
   const [desc, setDesc] = useState([]);
   const [toggleInfoBox, setToggleInfoBox] = useState(false);
@@ -19,7 +18,6 @@ export default function SelectBeer(props) {
   }, []);
   useEffect(() => {
     Heroku.getBeerTypes(setDesc);
-    // Heroku.getBeerTypes(setCategory);
   }, []);
   function getOrders(orders) {
     console.log(orders);
@@ -29,14 +27,14 @@ export default function SelectBeer(props) {
   function selectingBeer(beers) {
     setSelected(beers);
   }
-
+  //create the new array
   const beers = info.map(function (item) {
     return item.beer;
   });
+  //filter the new array and make sure the same beer doesn't show twice
   const oneOfEachBeer = beers.filter(function (item, index) {
     return beers.indexOf(item) >= index;
   });
-
   function onInfoClick(n) {
     console.log(n);
     if (name === n) {
