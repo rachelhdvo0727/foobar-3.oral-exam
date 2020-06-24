@@ -54,4 +54,5 @@
   font-family: var(--headings-font);
   color: var(--bright-purple-bg);
   font-weight: bold;
+  cursor: pointer;
 }
