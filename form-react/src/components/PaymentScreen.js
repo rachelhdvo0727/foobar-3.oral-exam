@@ -14,6 +14,7 @@ import WirelessIcon from "../svgs/wireless_icon.svg";
 import { Heroku } from "../modules/Heroku";
 
 export default function PaymentScreen(props) {
+  //console.log(props); //2 opbjects, [1] Count and Name
   // set chosen payment is unknown at the start
   let [payment, setPayment] = useState(undefined);
 
@@ -26,6 +27,7 @@ export default function PaymentScreen(props) {
     const yourorder = [];
     props.orders.forEach((elm) => {
       if (elm.name !== undefined) {
+        //change to Name and Amount
         yourorder.push({
           name: elm.name,
           amount: elm.count,
@@ -33,7 +35,7 @@ export default function PaymentScreen(props) {
       }
     });
 
-    //console.log(yourorder);
+    // console.log(yourorder);
     setOrders(yourorder);
   }, [props.orders]);
 
